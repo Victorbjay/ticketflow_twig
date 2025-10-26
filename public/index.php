@@ -16,20 +16,20 @@ $router = new Router();
 // ---------- PAGES (GET)
 $router->get('/', function() use ($twig) {
   echo $twig->render('landing.twig', [
-    'title' => 'TicketFlow — Manage Tickets Like a Pro'
+    'title' => 'ResolveHub — Manage Tickets Like a Pro'
   ]);
 });
 
 $router->get('/auth/login', function() use ($twig) {
   echo $twig->render('auth_login.twig', [
-    'title' => 'Login — TicketFlow',
+    'title' => 'Login — ResolveHub',
     'flash' => App\Flash::pull()
   ]);
 });
 
 $router->get('/auth/signup', function() use ($twig) {
   echo $twig->render('auth_signup.twig', [
-    'title' => 'Create Account — TicketFlow',
+    'title' => 'Create Account — ResolveHub',
     'flash' => App\Flash::pull()
   ]);
 });
@@ -46,7 +46,7 @@ $router->get('/dashboard', function() use ($twig) {
   ];
 
   echo $twig->render('dashboard.twig', [
-    'title' => 'Dashboard — TicketFlow',
+    'title' => 'Dashboard — ResolveHub',
     'user' => Auth::user(),
     'stats' => $stats,
     'flash' => Flash::pull()
@@ -57,7 +57,7 @@ $router->get('/tickets', function() use ($twig) {
   Auth::requireAuth('/auth/login');
   $repo = new TicketRepository();
   echo $twig->render('tickets.twig', [
-    'title' => 'Tickets — TicketFlow',
+    'title' => 'Tickets — ResolveHub',
     'user' => Auth::user(),
     'tickets' => $repo->all(),
     'csrf' => Csrf::token(),

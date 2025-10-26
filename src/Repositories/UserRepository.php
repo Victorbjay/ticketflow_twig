@@ -7,7 +7,7 @@ class UserRepository {
     $this->file = __DIR__ . '/../../data/users.json';
     if (!file_exists($this->file)) {
       file_put_contents($this->file, json_encode([[
-        'email'=>'demo@ticketflow.com',
+        'email'=>'demo@resolvehub.com',
         'password'=>password_hash('demo123', PASSWORD_DEFAULT)
       ]], JSON_PRETTY_PRINT));
     }

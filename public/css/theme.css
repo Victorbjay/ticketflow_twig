@@ -32,3 +32,4 @@ button:focus, a:focus, input:focus, select:focus, textarea:focus {
   outline-offset: 2px;
   border-color: var(--secondary) !important;
 }
+

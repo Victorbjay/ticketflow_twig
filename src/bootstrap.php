@@ -13,4 +13,4 @@ $twig = new Environment($loader, [
 ]);
 
 // Expose theme variables or helpers globally if desired
-$twig->addGlobal('APP_NAME', 'TicketFlow');
+$twig->addGlobal('APP_NAME', 'ResolveHub');
