@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div style="min-height:70vh; display:grid; place-items:center; padding:2rem;">
+  <form method="post" action="/auth/login" style="width:100%; max-width:480px; background:color-mix(in srgb, var(--bg-card) 85%, transparent); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:24px; padding:2rem;">
+    <h1 style="margin-bottom:1rem;">Welcome Back</h1>
+    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Sign in to manage your tickets</p>
+
+    <div style="margin-bottom:1rem;">
+      <label for="email" style="display:block; margin-bottom:.25rem; color:var(--text-secondary); font-weight:600;">Email</label>
+      <input id="email" type="email" name="email" required style="width:100%; padding:.875rem 1rem; background:var(--glass); color:var(--text-primary); border:2px solid var(--border); border-radius:10px;">
+    </div>
+
+    <div style="margin-bottom:1rem;">
+      <label for="password" style="display:block; margin-bottom:.25rem; color:var(--text-secondary); font-weight:600;">Password</label>
+      <input id="password" type="password" name="password" required minlength="6" style="width:100%; padding:.875rem 1rem; background:var(--glass); color:var(--text-primary); border:2px solid var(--border); border-radius:10px;">
+    </div>
+
+    <button style="width:100%; padding:1rem; background:var(--primary-grad); color:var(--text-primary); border:1px solid var(--border); border-radius:12px; font-weight:700;">Sign In</button>
+
+    <p style="margin-top:1rem; text-align:center; color:var(--text-secondary); font-size:.9rem;">
+      Don’t have an account? <a href="/auth/signup" style="color:var(--secondary); text-decoration:underline;">Sign up</a>
+    </p>
+
+    <div style="margin-top:1rem; padding:1rem; background:var(--glass); border:1px solid var(--border); border-radius:10px; color:var(--text-muted); font-size:.85rem;">
+      Demo: demo@ticketflow.com / demo123
+    </div>
+  </form>
+</div>
+{% endblock %}

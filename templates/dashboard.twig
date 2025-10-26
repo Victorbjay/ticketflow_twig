@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div style="max-width:1440px; margin:0 auto; padding:3rem 2rem;">
+  <header style="margin-bottom:2rem;">
+    <h1 style="font-size:clamp(2rem,4vw,3rem);">Welcome back! 👋</h1>
+    <p style="color:var(--text-secondary); font-size:1.125rem;">Here’s what’s happening with your tickets</p>
+  </header>
+
+  <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-bottom:2rem;">
+    {% set cards = [
+      {icon:'📊', value: stats.total, label:'Total Tickets'},
+      {icon:'🟢', value: stats.open, label:'Open Tickets'},
+      {icon:'🟡', value: stats.in_progress, label:'In Progress'},
+      {icon:'✓',   value: stats.closed, label:'Resolved'}
+    ] %}
+    {% for c in cards %}
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:2rem; box-shadow:0 8px 24px var(--shadow);">
+        <div style="font-size:2rem;">{{ c.icon }}</div>
+        <div style="font-size:2rem; font-weight:700;">{{ c.value }}</div>
+        <div style="color:var(--text-secondary)">{{ c.label }}</div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <a href="/tickets" style="display:inline-flex; gap:.5rem; align-items:center; padding:1rem 1.5rem; background:var(--primary-grad); color:var(--text-primary); border:1px solid var(--border); border-radius:12px; text-decoration:none; font-weight:700;">
+    🎫 Manage Tickets
+  </a>
+</div>
+{% endblock %}

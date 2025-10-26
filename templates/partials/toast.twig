@@ -1,0 +1,16 @@
+{% if flash and flash|length %}
+  <div style="position:fixed; top:2rem; right:2rem; z-index:9999; display:grid; gap:.5rem;">
+    {% for f in flash %}
+      <div style="
+        background: {{ f.type == 'error' ? 'var(--danger)' : 'var(--success)' }};
+        color: var(--text-primary);
+        padding: .875rem 1rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px var(--shadow);
+        border:1px solid var(--border);
+        ">
+        {{ f.message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

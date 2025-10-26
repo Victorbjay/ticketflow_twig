@@ -1,0 +1,34 @@
+:root.theme-forest {
+  --primary: #34d399ec; /* emerald-400 */
+  --primary-dark: #059669; /* emerald-700 */
+  --secondary: #60a5fa; /* blue-400 */
+  --bg-dark: #0d1117; /* github-darkish */
+  --bg-card: #161b22; /* deep slate */
+  --text-primary: #e6edf3; /* soft white */
+  --text-secondary: #c9d1d9; /* cool gray */
+  --text-muted: #8b949e; /* muted gray */
+  --border: #30363d; /* slate border */
+  --shadow: rgba(1, 4, 9, 0.6);
+
+  --danger: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  --glass: rgba(255,255,255,0.05);
+  --primary-grad: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Basic focus ring for accessibility */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid color-mix(in srgb, var(--secondary) 60%, white);
+  outline-offset: 2px;
+  border-color: var(--secondary) !important;
+}

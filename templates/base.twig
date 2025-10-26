@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" class="theme-forest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title|default(APP_NAME) }}</title>
+  <link rel="stylesheet" href="/css/theme.css">
+</head>
+<body style="background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%); color: var(--text-primary); font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;">
+
+  <nav style="background: color-mix(in srgb, var(--bg-card) 80%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top:0; z-index:1000;">
+    <div style="max-width:1440px; margin:0 auto; padding:1.25rem 2rem; display:flex; justify-content:space-between; align-items:center;">
+      <div style="font-size:1.5rem; font-weight:700; background:linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">
+        TicketFlow
+      </div>
+      <div style="display:flex; gap:.75rem; align-items:center;">
+        {% if user %}
+          <span style="color:var(--text-secondary); font-size:.875rem;">{{ user.email }}</span>
+          <form method="post" action="/logout">
+            <button style="padding:.625rem 1rem; background:color-mix(in srgb, var(--danger) 12%, transparent); color:var(--danger); border:1px solid color-mix(in srgb, var(--danger) 40%, var(--border)); border-radius:8px; font-weight:600; cursor:pointer;">Logout</button>
+          </form>
+        {% else %}
+          <a href="/auth/login" style="padding:.625rem 1rem; background:var(--primary-grad); color:var(--text-primary); border:1px solid var(--border); border-radius:8px; font-weight:600; text-decoration:none;">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  {% include 'partials/toast.twig' with { flash: flash|default([]) } %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'partials/footer.twig' %}
+</body>
+</html>
